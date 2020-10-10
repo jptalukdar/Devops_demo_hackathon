@@ -1,7 +1,8 @@
 name: release
 
 on:
-  push: [ release ]
+  push: 
+    branches: [ release ]
 
 jobs:
   build-and-deploy: 
