@@ -29,7 +29,9 @@ jobs:
     - name: generate docs
       run: |
         pwd
-        pdoc --html --output-dir docs PCalculator\  --skip-errors
+        ls
+        cd PCalculator\
+        pdoc --html --output-dir docs calculator.py
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
