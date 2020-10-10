@@ -30,22 +30,22 @@ jobs:
         pdoc --html --output-dir docs PCalculator\ 
 
     - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
-          BRANCH: release # The branch the action should deploy to.
-          FOLDER: docs # The folder the action should deploy.
-          CLEAN: true
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.github_token }}
+        BRANCH: release # The branch the action should deploy to.
+        FOLDER: docs # The folder the action should deploy.
+        CLEAN: true
 
     - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Automated release: {{ github.GITHUB_RUN_NUMBER }}
-          draft: false
-          prerelease: false
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        body: |
+          Automated release: {{ github.GITHUB_RUN_NUMBER }}
+        draft: false
+        prerelease: false
