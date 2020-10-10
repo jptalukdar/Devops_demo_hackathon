@@ -1,10 +1,11 @@
 name: release
 
 on:
-  push: [release]
+  push: 
+    branches: [release]
 
 jobs:
-  build: 
+  build-and-deploy: 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
